@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'tasks', to: 'tasks#index'
-  get 'tasks/:id', to: 'tasks#show'
-  get 'tasks/new', to: 'tasks#new'
+  get 'tasks/', to: 'tasks#show', as: :task
+  get 'tasks/new', to: 'tasks#new', as: :new_task
   post 'tasks', to: 'tasks#create'
-  get 'tasks/:id/edit', to: 'tasks#edit'
-  patch 'photos/:id/update', to: 'task#update'
-  get 'delete', to: 'tasks#destroy'
+  get 'tasks/:id/edit', to: 'tasks#edit', as: :edit_task
+  patch 'tasks/:id/update', to: 'task#update'
+  get 'tasks/:id/delete', to: 'tasks#destroy'
   # For details on the DSL available within this file, see
 end

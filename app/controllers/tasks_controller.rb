@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+  before_action :set_task, ony: [ :show, :edit, :update, :destroy ]
+
   def index
     @tasks = Task.all
   end
 
   def show
-    @tasks = Task.find(params[:id])
   end
 
   def new
@@ -12,21 +13,22 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(params[:id])
+    @task = Task.new
     @restaurant.save
   end
 
   def edit
-    @tasks = Task.find(params[:id])
   end
 
   def update
-    @tasks = Task.update(params[:id])
   end
 
   def destroy
-    @tasks = Task.find(params[:id])
-    @tasks.destroy
+  end
+private
+
+  def set_task
+    task = Task.find(params[:id])
   end
 
 end
